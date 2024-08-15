@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PlantInfo: View {
     
-    @State var wButtonPressed: Bool = false
-    @State var fButtonPressed: Bool = false
+    @State var waterButtonPressed: Bool = false
+    @State var fertilizerButtonPressed: Bool = false
 
     let plantinhaItem : Plant
     
@@ -20,7 +20,7 @@ struct PlantInfo: View {
                         
                 VStack {
                     
-                    Image("orquideaPhoto")
+					Image(uiImage: plantinhaItem.image!)
                         .resizable()
                         .scaledToFill()
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
@@ -35,11 +35,11 @@ struct PlantInfo: View {
                     VStack{
                         HStack {
                             Image("waterIcon")
-                            Text("  \(plantinhaItem.WaterFrequency) days")
+                            Text("  \(plantinhaItem.waterFrequency) days")
                         }
                         HStack{
                             Image("fertilizerIcon")
-                            Text("\(plantinhaItem.FertilizerFrequency) days")
+                            Text("\(plantinhaItem.fertilizerFrequency) days")
                         }
                         
                     }
@@ -66,14 +66,14 @@ struct PlantInfo: View {
                     HStack (spacing: 20) {
                         
                         let waterButton = Button(action: {
-                            wButtonPressed.toggle()
+                            waterButtonPressed.toggle()
                         }) {
                             Image("doneWater")
                                 .resizable()
                                 .shadow(radius: 15, y: 5)
                         }
                         
-                        if wButtonPressed {
+                        if waterButtonPressed {
                             waterButton.buttonStyle(taskDone())
                         } else {
                             waterButton
@@ -81,14 +81,14 @@ struct PlantInfo: View {
                         
                         
                         let fertilizerButton = Button(action: {
-                            fButtonPressed.toggle()
+                            fertilizerButtonPressed.toggle()
                         }) {
                             Image("doneFertilizer")
                                 .resizable()
                                 .shadow(radius: 15, y: 5)
                             
                         }
-                        if fButtonPressed {
+                        if fertilizerButtonPressed {
                             fertilizerButton.buttonStyle(taskDone())
                         } else {
                             fertilizerButton

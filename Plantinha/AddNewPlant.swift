@@ -138,7 +138,7 @@ struct AddNewPlant: View {
 				.toolbar {
 					ToolbarItem(placement: .topBarTrailing) {
 						Button("Save") {
-							let newplant = Plant(name: name, notes: notes, WaterFrequency: waterFrequency, FertilizerType: fertilizerType, FertilizerFrequency: fertilizerFrequency, image: image!)
+							let newplant = Plant(name: name, notes: notes, waterFrequency: waterFrequency, lastTimeWater: lastTimeWatered, fertilizerType: fertilizerType, fertilizerFrequency: fertilizerFrequency, image: image!, lastTimeFertilizer: lastTimeFertilized)
 							
 							PlantinhasList.append(newplant)
 							print(newplant)
@@ -175,7 +175,7 @@ struct AddNewPlant: View {
 				HStack {
 					Text("Fertilizer Frequency:")
 						.padding()
-					Picker("Select a number", selection: $waterFrequency) {
+					Picker("Select a number", selection: $fertilizerFrequency) {
 						ForEach(0..<61) {
 							Text("\($0)")
 						}
