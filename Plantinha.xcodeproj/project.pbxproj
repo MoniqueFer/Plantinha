@@ -11,6 +11,9 @@
 		ADCED19F2C63F04C00DF47F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCED19E2C63F04C00DF47F5 /* ContentView.swift */; };
 		ADCED1A12C63F04E00DF47F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADCED1A02C63F04E00DF47F5 /* Assets.xcassets */; };
 		ADCED1A42C63F04E00DF47F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADCED1A32C63F04E00DF47F5 /* Preview Assets.xcassets */; };
+		ADCED1AB2C63F11800DF47F5 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCED1AA2C63F11800DF47F5 /* MyData.swift */; };
+		ADCED1AD2C6427DF00DF47F5 /* PlantInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCED1AC2C6427DF00DF47F5 /* PlantInfo.swift */; };
+		ADCED1AF2C65319200DF47F5 /* AddNewPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCED1AE2C65319200DF47F5 /* AddNewPlant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		ADCED19E2C63F04C00DF47F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ADCED1A02C63F04E00DF47F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADCED1A32C63F04E00DF47F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ADCED1AA2C63F11800DF47F5 /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
+		ADCED1AC2C6427DF00DF47F5 /* PlantInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantInfo.swift; sourceTree = "<group>"; };
+		ADCED1AE2C65319200DF47F5 /* AddNewPlant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,11 @@
 		ADCED19B2C63F04C00DF47F5 /* Plantinha */ = {
 			isa = PBXGroup;
 			children = (
+				ADCED1AC2C6427DF00DF47F5 /* PlantInfo.swift */,
 				ADCED19C2C63F04C00DF47F5 /* PlantinhaApp.swift */,
 				ADCED19E2C63F04C00DF47F5 /* ContentView.swift */,
+				ADCED1AE2C65319200DF47F5 /* AddNewPlant.swift */,
+				ADCED1AA2C63F11800DF47F5 /* MyData.swift */,
 				ADCED1A02C63F04E00DF47F5 /* Assets.xcassets */,
 				ADCED1A22C63F04E00DF47F5 /* Preview Content */,
 			);
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCED1AB2C63F11800DF47F5 /* MyData.swift in Sources */,
+				ADCED1AD2C6427DF00DF47F5 /* PlantInfo.swift in Sources */,
 				ADCED19F2C63F04C00DF47F5 /* ContentView.swift in Sources */,
 				ADCED19D2C63F04C00DF47F5 /* PlantinhaApp.swift in Sources */,
+				ADCED1AF2C65319200DF47F5 /* AddNewPlant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +292,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,9 +300,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.moni.Plantinha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,6 +326,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,9 +334,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.moni.Plantinha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
