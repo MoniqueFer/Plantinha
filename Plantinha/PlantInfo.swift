@@ -100,16 +100,16 @@ struct PlantInfo: View {
                     .padding(.leading)
                     
                     
-                    .toolbar{
-                        ToolbarItem(placement: .topBarTrailing) {
-                            NavigationLink(
-                                destination: AddNewPlant())  {
-                                    Text("Edit")
-                                }
-                        }
-                        
-                        
-                    }
+//                    .toolbar{
+//                        ToolbarItem(placement: .topBarTrailing) {
+//                            NavigationLink(
+//                                destination: AddNewPlant(myList: myList))  {
+//                                    Text("Edit")
+//                                }
+//                        }
+//                        
+//                        
+//                    }
                     
                 }
             
@@ -144,6 +144,6 @@ struct taskDone: ButtonStyle {
 
 #Preview {
     
-    PlantInfo(plantinhaItem: PlantinhasList[0]
+    PlantInfo(plantinhaItem: plantinhasList[0]
     )
 }

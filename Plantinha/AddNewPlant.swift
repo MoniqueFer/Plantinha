@@ -10,6 +10,10 @@ import PhotosUI
 
 struct AddNewPlant: View {
 	
+	@Environment(\.dismiss) var dismiss
+	
+	@ObservedObject var myList: PlantsList
+	
 	@State var name: String = ""
 	@State var waterFrequency: Int = 0
 	@State var lastTimeWatered  = Date.now
@@ -140,8 +144,9 @@ struct AddNewPlant: View {
 						Button("Save") {
 							let newplant = Plant(name: name, notes: notes, waterFrequency: waterFrequency, lastTimeWater: lastTimeWatered, fertilizerType: fertilizerType, fertilizerFrequency: fertilizerFrequency, image: image!, lastTimeFertilizer: lastTimeFertilized)
 							
-							PlantinhasList.append(newplant)
+							myList.theList.append(newplant)
 							print(newplant)
+							dismiss()
 						}
 					}
 					
@@ -236,5 +241,5 @@ extension View {
 }
 
 #Preview {
-	AddNewPlant()
+	AddNewPlant(myList: PlantsList())
 }

@@ -27,7 +27,7 @@ class User: Identifiable {
 
 
 
-struct Plant: Identifiable {
+class Plant: Identifiable {
 	
 	var image: UIImage?
 	var id = UUID()
@@ -49,4 +49,8 @@ struct Plant: Identifiable {
 		self.image = image
 		self.lastTimeFertilizer = lastTimeFertilizer
 	}
+}
+
+class PlantsList: ObservableObject {
+	@Published var theList = [Plant]()
 }
