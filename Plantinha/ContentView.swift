@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-var plantinhasList: [Plant] = [
+//var plantinhasList: [Plant] = [
 	
 //	Plant(name: "Orquidea",
 //		  notes: "é uma planta que gosta de umidade e queima se ficar mt exposta ao sol. Precisa regar quando as raizes estiverem acizentadas",
@@ -42,7 +42,7 @@ var plantinhasList: [Plant] = [
 //		  lastTimeFertilizer: Calendar.current.date(from: DateComponents(year: 2024, month: 8, day:10))!
 //   )
 
-]
+//]
 
 
 struct ContentView: View {
@@ -51,11 +51,11 @@ struct ContentView: View {
 	//creating a instance of the class that holds the list insite the view to act like a "subscriber" to any changes in the list and be notified of it.
 	@ObservedObject var myList = PlantsList()
 	
-	//specifing the path to the context
-	//    @Environment(\.modelContext) private var context
+	//asking swift for array of data
+	@Query var plants : [Plant]
 	
-	//getting the data out of database to be show
-	//    @Query private var items: [Plant]
+	//A ModelContext provides a connection between the view and the model container so that you can fetch, insert, and delete items in the container. The .modelContainer modifier you added to ContentView inserts a modelContext into the SwiftUI environment, and that modelContext is accessible to all views under the container.
+	@Environment (\.modelContext) private var context
 	
 	enum WaterPicker: String, CaseIterable, Identifiable{
 		
@@ -102,7 +102,7 @@ struct ContentView: View {
 						HStack {
 							
 							NavigationLink {
-								AddNewPlant(myList: myList)
+								AddNewPlant(modelContext: context, myList: myList)
 							} label: {
 								Text("+")
 									.font(.title2)
@@ -191,4 +191,6 @@ struct ContentView: View {
 
 #Preview{
 	ContentView()
+		.modelContainer(for: Plant.self, inMemory: true)
+
 }

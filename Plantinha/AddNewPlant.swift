@@ -7,10 +7,13 @@
 
 import SwiftUI
 import PhotosUI
+import SwiftData
 
 struct AddNewPlant: View {
 	
 	@Environment(\.dismiss) var dismiss
+	
+	let modelContext: ModelContext
 	
 	@ObservedObject var myList: PlantsList
 	
@@ -70,17 +73,15 @@ struct AddNewPlant: View {
 						}
 						
 					}
-							.onChange(of: photosPickerItem){ _, _ in
-								Task {
-									if let photosPickerItem,
-									   let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
-										if let imagem = UIImage(data: data){
-											image = imagem
+										.onChange(of: photosPickerItem) { _, _ in
+											Task {
+												if let photosPickerItem,
+												   let data = try? await photosPickerItem.loadTransferable(type: Data.self) {
+													image = UIImage(data: data)
+												}
+											}
 										}
-									}
-									photosPickerItem = nil
-								}
-							}
+							
 					
 					
 					
@@ -142,10 +143,11 @@ struct AddNewPlant: View {
 				.toolbar {
 					ToolbarItem(placement: .topBarTrailing) {
 						Button("Save") {
-							let newplant = Plant(name: name, notes: notes, waterFrequency: waterFrequency, lastTimeWater: lastTimeWatered, fertilizerType: fertilizerType, fertilizerFrequency: fertilizerFrequency, image: image!, lastTimeFertilizer: lastTimeFertilized)
+							let newPlant = Plant(name: name, notes: notes, waterFrequency: waterFrequency, lastTimeWater: lastTimeWatered, fertilizerType: fertilizerType, fertilizerFrequency: fertilizerFrequency, image: image!, lastTimeFertilizer: lastTimeFertilized)
 							
-							myList.theList.append(newplant)
-							print(newplant)
+							myList.theList.append(newPlant)
+							modelContext.insert(newPlant)
+							print(newPlant)
 							dismiss()
 						}
 					}
@@ -240,6 +242,6 @@ extension View {
 	}
 }
 
-#Preview {
-	AddNewPlant(myList: PlantsList())
-}
+//#Preview {
+//	AddNewPlant(myList: PlantsList(),)
+//}

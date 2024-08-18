@@ -15,7 +15,7 @@ struct PlantinhaApp: App {
             ContentView()
         }
         //here i call the modelcontainer of the entity User.
-        .modelContainer(for: User.self)
+        .modelContainer(for: Plant.self)
     }
 }
 

@@ -26,10 +26,9 @@ class User: Identifiable {
 }
 
 
-
+@Model
 class Plant: Identifiable {
-	
-	var image: UIImage?
+	var imageData: Data?
 	var id = UUID()
 	var name: String
 	var notes: String
@@ -39,18 +38,30 @@ class Plant: Identifiable {
 	var fertilizerFrequency: Int
 	var lastTimeFertilizer: Date
 	
-	init(name: String, notes: String, waterFrequency: Int, lastTimeWater: Date, fertilizerType: String, fertilizerFrequency: Int, image: UIImage, lastTimeFertilizer: Date) {
-		self.name = name
-		self.notes = notes
-		self.waterFrequency = waterFrequency
-		self.lastTimeWater = lastTimeWater
-		self.fertilizerType = fertilizerType
-		self.fertilizerFrequency = fertilizerFrequency
-		self.image = image
-		self.lastTimeFertilizer = lastTimeFertilizer
-	}
-}
+	var image: UIImage? {
+			get {
+				guard let imageData = imageData else { return nil }
+				return UIImage(data: imageData)
+			}
+			set {
+				imageData = newValue?.jpegData(compressionQuality: 0.8)
+			}
+		}
+		
+	
+	
+	init(name: String, notes: String, waterFrequency: Int, lastTimeWater: Date, fertilizerType: String, fertilizerFrequency: Int, image: UIImage?, lastTimeFertilizer: Date) {
+		 self.name = name
+		 self.notes = notes
+		 self.waterFrequency = waterFrequency
+		 self.lastTimeWater = lastTimeWater
+		 self.fertilizerType = fertilizerType
+		 self.fertilizerFrequency = fertilizerFrequency
+		 self.lastTimeFertilizer = lastTimeFertilizer
+		 self.imageData = image?.jpegData(compressionQuality: 0.8)  // Optional image handling
+	 }
+ }
 
-class PlantsList: ObservableObject {
-	@Published var theList = [Plant]()
-}
+ class PlantsList: ObservableObject {
+	 @Published var theList = [Plant]()
+ }

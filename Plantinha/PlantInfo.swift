@@ -141,9 +141,9 @@ struct taskDone: ButtonStyle {
     }
 }
 
-
-#Preview {
-    
-    PlantInfo(plantinhaItem: plantinhasList[0]
-    )
-}
+//
+//#Preview {
+//    
+//	PlantInfo(plantinhaItem: myList.[0]
+//    )
+//}
