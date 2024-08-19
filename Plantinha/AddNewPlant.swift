@@ -145,9 +145,9 @@ struct AddNewPlant: View {
 						Button("Save") {
 							let newPlant = Plant(name: name, notes: notes, waterFrequency: waterFrequency, lastTimeWater: lastTimeWatered, fertilizerType: fertilizerType, fertilizerFrequency: fertilizerFrequency, image: image!, lastTimeFertilizer: lastTimeFertilized)
 							
-							myList.theList.append(newPlant)
 							modelContext.insert(newPlant)
-							print(newPlant)
+							try? modelContext.save()
+							print("Inserted new plant: \(newPlant.name)")
 							dismiss()
 						}
 					}
